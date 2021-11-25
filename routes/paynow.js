@@ -81,6 +81,9 @@ router.post("/api/paynow", async (req, res) => {
   );
 
   paytmParams.head = {
+    clientId: "C11",
+    version: "v1",
+    channelId: "WEB",
     signature: checksum,
   };
 
@@ -98,6 +101,7 @@ router.post("/api/paynow", async (req, res) => {
       "Content-Type": "application/json",
       "Content-Length": post_data.length,
     },
+    body: post_data,
   };
 
   let response = "";
